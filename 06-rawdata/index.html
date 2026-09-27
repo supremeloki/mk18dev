@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>داده خام — MK18DEV</title>
+<meta name="description" content="همه اعداد در یک جدول — بدون روایت، بدون تزئین">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<meta property="og:title" content="داده خام — MK18DEV">
+<meta property="og:description" content="همه اعداد در یک جدول — بدون روایت، بدون تزئین">
+<meta property="og:type" content="website">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(56,189,248,.3)}
+
+:root{--bg:#070a0f;--fg:#e8ecf5;--mut:#8a93a5;--acc:#38bdf8;--acc2:#a78bfa;--acc3:#34d399;--line:rgba(255,255,255,.09)}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",Tahoma,sans-serif;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hero{text-align:center;padding:78px 0 40px}
+.mk{width:66px;height:66px;margin:0 auto 20px;filter:drop-shadow(0 12px 30px rgba(56,189,248,.5))}
+h1{font-size:clamp(1.9rem,5.2vw,3rem);font-weight:800;letter-spacing:-.025em}
+.rl{color:var(--acc);font-size:1rem;font-weight:650;margin-top:11px}
+.tg{color:var(--mut);margin:12px auto 0;line-height:1.9;max-width:580px}
+.ct{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+.ct a{padding:12px 25px;border-radius:11px;font-weight:700;font-size:.87rem;transition:.25s}
+.ct .p{background:linear-gradient(100deg,#38bdf8,#a78bfa);color:#04060c}
+.ct .p:hover{transform:translateY(-3px)}
+.ct .s{border:1px solid var(--line);color:var(--fg)}
+.ct .s:hover{border-color:var(--acc);color:var(--acc)}
+section{padding:50px 0}
+h2{font-size:1.4rem;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:11px}
+h2 .b{display:inline-block;width:5px;height:23px;background:linear-gradient(#38bdf8,#a78bfa);border-radius:3px}
+.sub{color:var(--mut);margin-bottom:24px;font-size:.88rem}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th{text-align:right;padding:11px 12px;color:var(--mut);font-weight:600;border-bottom:1px solid var(--line);
+font-size:.76rem;letter-spacing:.03em}
+td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:rgba(56,189,248,.04)}
+.n{font-variant-numeric:tabular-nums;font-weight:700;color:var(--fg)}
+.hi{color:var(--acc)}.lo{color:#ef4444}.wn{color:#fbbf24}.gr{color:var(--acc3)}
+code{font-family:Consolas,monospace;font-size:.78rem;color:var(--acc2);background:rgba(129,140,248,.1);
+padding:2px 8px;border-radius:5px;white-space:nowrap}
+.mini{display:inline-block;font-size:.7rem;border:1px solid var(--line);border-radius:99px;padding:2px 9px;
+color:var(--mut);margin:2px 3px 2px 0}
+.kpi4{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:13px;margin-bottom:30px}
+.kpi{background:rgba(255,255,255,.028);border:1px solid var(--line);border-radius:13px;padding:19px}
+.kpi b{display:block;font-size:1.8rem;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--mut);font-size:.76rem;display:block;margin-top:5px}
+.kpi.g b{color:var(--acc3)}.kpi.r b{color:var(--neg,#ef4444)}.kpi.y b{color:var(--warn,#fbbf24)}.kpi.b b{color:var(--acc)}
+.tl2{display:grid;gap:0}
+.tl2 li{list-style:none;display:grid;grid-template-columns:96px 1fr;gap:20px;padding:16px 0;
+border-bottom:1px solid var(--line)}
+.tl2 li:last-child{border-bottom:0}
+.tl2 .y{font-size:1.3rem;font-weight:800;color:var(--acc)}
+.tl2 h4{font-size:.96rem;margin-bottom:4px}
+.tl2 p{color:var(--mut);font-size:.82rem;line-height:1.75}
+.tl2 .c{color:var(--acc2);font-size:.76rem}
+.rl2{display:grid;gap:10px}
+.rl2 li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:.84rem;
+padding:12px 15px;background:rgba(255,255,255,.028);border:1px solid var(--line);border-radius:11px}
+.rl2 .k{color:var(--acc);font-weight:800}
+.rl2 i{display:block;color:var(--mut);font-size:.72rem;font-style:normal;margin-top:3px}
+footer{padding:32px 0;border-top:1px solid var(--line);margin-top:16px}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.f1{display:flex;gap:11px;align-items:center}
+.f1 b{display:block;font-size:.9rem}
+.f1 span{color:var(--mut);font-size:.75rem}
+nav{display:flex;gap:15px}
+nav a{color:var(--mut);font-size:.83rem}
+nav a:hover{color:var(--acc)}
+.fn{color:var(--mut);font-size:.72rem;margin-top:11px;line-height:1.8;opacity:.8}
+@media(max-width:640px){.tl2 li{grid-template-columns:1fr;gap:5px}}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="hero"><img src="../assets/favicon.svg" alt="MK18DEV" width="66" height="66" class="mk">
+<h1>کوروش معصومی</h1><p class="rl">مهندس سیستم‌های هوش مصنوعی</p>
+<p class="tg">ساخت سیستم‌های هوش مصنوعی که روی سخت‌افزار خودت اجرا می‌شوند</p>
+<div class="ct"><a class="p" href="https://github.com/supremeloki">گیت‌هاب</a>
+<a class="s" href="mailto:kooroushmasoumi@gmail.com">ایمیل</a></div></div>
+
+<section><h2><span class="b"></span>اعداد خام</h2>
+<p class="sub">بدون تفسیر. فقط عدد.</p>
+<div class="kpi4">
+  <div class="kpi b"><b>6,526</b><span>کل کامیت</span></div>
+  <div class="kpi r"><b>47.7٪</b><span>کامیت خالی</span></div>
+  <div class="kpi y"><b>2,272</b><span>تکرار پیام یکتا</span></div>
+  <div class="kpi g"><b>74</b><span>مخزن</span></div>
+</div>
+<table>
+<tr><th>سیستم</th><th>خط پایتون</th><th>فایل</th><th>ماژول</th><th>بازه کامیت</th><th>تست</th></tr>
+<tr>
+<td><b>Smart Logistics</b><br><span class="mini" style="margin-top:6px">RL</span></td>
+<td class="n hi">خط</td>
+<td class="n">فایل پایتون</td>
+<td class="n">ماژول منبع</td>
+<td>آبان — اسفند ۱۳۹۶</td>
+<td class="lo">۸ تابع تست</td>
+</tr><tr>
+<td><b>Real-Time Fraud</b><br><span class="mini" style="margin-top:6px">MLOps</span></td>
+<td class="n hi">خط</td>
+<td class="n">فایل پایتون</td>
+<td class="n">ماژول منبع</td>
+<td>آبان — آذر ۱۳۹۶</td>
+<td class="lo">۱۰ تابع تست</td>
+</tr><tr>
+<td><b>Real-Time Demand</b><br><span class="mini" style="margin-top:6px">Pipeline</span></td>
+<td class="n hi">خط</td>
+<td class="n">فایل پایتون</td>
+<td class="n">ماژول منبع</td>
+<td>آبان — آذر ۱۳۹۶</td>
+<td class="lo">۵۲ تابع تست</td>
+</tr><tr>
+<td><b>lono_libs</b><br><span class="mini" style="margin-top:6px">Library</span></td>
+<td class="n hi">خط</td>
+<td class="n">فایل پایتون</td>
+<td class="n">تابع تست</td>
+<td>مهر — آبان ۱۳۹۶</td>
+<td class="lo">۱۲۸ تابع تست</td>
+</tr></table></section>
+
+<section><h2><span class="b"></span>خط زمان کامیت</h2>
+<p class="sub">از شمارش ماهی تاریخچه گیت.</p>
+<ul class="tl2"><li><span class="y">۱۴۰۲</span><div><h4>تأسیس حضور</h4><p>۱٬۱۹۳ کامیت در ۱۲ ماه — ساخت ۷۴ مخزن با تقسیم‌بندی موضوعی</p><span class="c">1,193 واحد</span></div></li><li><span class="y">۱۴۰۳</span><div><h4>رشد پیوسته</h4><p>۳٬۱۲۷ کامیت در ۱۲ ماه — بیشترین فعالیت در خرداد و آبان</p><span class="c">3,127 واحد</span></div></li><li><span class="y">۱۴۰۴</span><div><h4>عمیق‌سازی واقعی</h4><p>چهار مخزن اصلی در سه ماه پاییز — ۴۲٬۱۲۷ خط کد واقعی</p><span class="c">42,127 واحد</span></div></li></ul></section>
+
+<section><h2><span class="b"></span>قواعد</h2>
+<p class="sub">پنج قانون ثابت روی کد.</p>
+<ul class="rl2"><li><span class="k">✓</span><span>بدون کامنت — نام‌ها خودشان مستند هستند<i>Zero comments</i></span></li><li><span class="k">✓</span><span>بدون بدهی فنی<i>Zero technical debt</i></span></li><li><span class="k">✓</span><span>بدون شبه‌کد — همه‌چیز واقعی<i>No placeholders</i></span></li><li><span class="k">✓</span><span>تست واقعی پیش از اتمام<i>Real tests first</i></span></li><li><span class="k">✓</span><span>تایپینگ کامل<i>Full typing</i></span></li></ul></section>
+
+<footer>
+  <div class="ft">
+    <div class="f1"><img src="../assets/favicon.svg" alt="" width="30" height="30">
+      <div><b>کوروش معصومی</b><span>مهندس سیستم‌های هوش مصنوعی</span></div></div>
+    <nav><a href="https://github.com/supremeloki">GitHub</a>
+         <a href="mailto:kooroushmasoumi@gmail.com">Email</a></nav>
+  </div>
+  <p class="fn">این صفحه جدولی است. اگر می‌خواهی روایت، نسخه‌های دیگر را ببین.</p>
+</footer>
+</div>
+
+</body>
+</html>

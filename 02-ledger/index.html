@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ایمان — MK18DEV</title>
+<meta name="description" content="راستی‌آزمایی کامل کارنامه مهندسی — مثبت و منفی، بدون پنهان‌کاری">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<meta property="og:title" content="ایمان — MK18DEV">
+<meta property="og:description" content="راستی‌آزمایی کامل کارنامه مهندسی — مثبت و منفی، بدون پنهان‌کاری">
+<meta property="og:type" content="website">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(56,189,248,.3)}
+
+:root{--bg:#0a0b0e;--fg:#e6e9ef;--mut:#858c9c;--acc:#10b981;--neg:#ef4444;--warn:#f59e0b;--line:rgba(255,255,255,.1)}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",Tahoma,sans-serif;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.hero{text-align:center;padding:80px 0 46px}
+.mk{width:70px;height:70px;margin:0 auto 20px;filter:drop-shadow(0 12px 30px rgba(16,185,129,.45))}
+h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:-.025em}
+.rl{color:var(--acc);font-size:1.02rem;font-weight:650;margin-top:12px}
+.tg{color:var(--mut);margin:14px auto 0;line-height:1.95;max-width:620px}
+.ct{display:flex;gap:13px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.ct a{padding:12px 26px;border-radius:11px;font-weight:700;font-size:.88rem;transition:.25s;
+border:1px solid var(--line)}
+.ct .p{background:var(--acc);color:#04120c;border-color:var(--acc)}
+.ct .p:hover{transform:translateY(-3px)}
+.ct .s{color:var(--fg)}
+.ct .s:hover{border-color:var(--acc);color:var(--acc)}
+.band{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.28);
+border-radius:13px;padding:17px 21px;margin:26px 0 6px;text-align:center}
+.band b{display:block;color:var(--acc);font-size:1.02rem;margin-bottom:5px}
+.band span{color:var(--mut);font-size:.86rem;line-height:1.8}
+section{padding:56px 0}
+h2{font-size:1.45rem;font-weight:800;margin-bottom:7px}
+.sub{color:var(--mut);margin-bottom:30px;font-size:.89rem;line-height:1.8}
+.hi{color:var(--acc)}
+.lo{color:var(--neg)}
+.wn{color:var(--warn)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.col{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:15px;padding:22px}
+.col.hi{border-color:rgba(16,185,129,.35)}
+.col.lo{border-color:rgba(239,68,68,.32)}
+.col h3{font-size:1.02rem;font-weight:750;margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.col h3 .mk{width:auto;height:auto;margin:0;font-size:1.1rem;filter:none;display:inline-block}
+.col.hi h3{color:var(--acc)}
+.col.lo h3{color:var(--neg)}
+/* polarity must not depend on colour alone — badge carries the same signal */
+.polar{font-size:.68rem;font-weight:800;border:1px solid currentColor;border-radius:99px;
+padding:2px 10px;margin-right:auto;letter-spacing:.04em}
+.led{list-style:none;display:grid;gap:13px}
+.led li{padding-bottom:13px;border-bottom:1px dashed var(--line);font-size:.85rem;line-height:1.8}
+.led li:last-child{border-bottom:0;padding-bottom:0}
+.led b{display:block;margin-bottom:3px}
+.led .v{font-size:1.3rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1;
+display:block;margin-bottom:6px}
+.led p{color:#aab3c4;font-size:.82rem;line-height:1.85}
+.facts{margin-top:20px}
+.facts table{width:100%;border-collapse:collapse;font-size:.84rem}
+.facts th{text-align:right;padding:11px 10px;color:var(--mut);font-weight:650;
+border-bottom:1px solid var(--line);font-size:.78rem}
+.facts td{padding:11px 10px;border-bottom:1px solid var(--line)}
+.facts tr:last-child td{border-bottom:0}
+.facts .n{font-variant-numeric:tabular-nums;font-weight:700}
+.kpi4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-bottom:26px}
+.kpi{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:18px}
+.kpi b{display:block;font-size:1.85rem;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--mut);font-size:.77rem}
+.kpi.g b{color:var(--acc)}.kpi.r b{color:var(--neg)}.kpi.y b{color:var(--warn)}
+.note{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);
+border-radius:12px;padding:18px 20px;margin-top:24px;font-size:.86rem;line-height:1.9}
+.note b{color:var(--warn)}
+.real4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:13px;margin-top:8px}
+.r4{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:13px;padding:19px}
+.r4 h4{font-size:.98rem;font-weight:700;margin-bottom:8px}
+.r4 .ln{color:var(--acc);font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums}
+.r4 p{color:var(--mut);font-size:.79rem;line-height:1.75;margin-top:7px}
+.r4 .tf{color:var(--warn);font-size:.74rem;margin-top:8px;display:block}
+footer{padding:34px 0;border-top:1px solid var(--line);margin-top:20px}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.f1{display:flex;gap:11px;align-items:center}
+.f1 b{display:block;font-size:.9rem}
+.f1 span{color:var(--mut);font-size:.75rem}
+nav{display:flex;gap:15px}
+nav a{color:var(--mut);font-size:.83rem}
+.fn{color:var(--mut);font-size:.72rem;margin-top:12px;line-height:1.8;opacity:.8}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="hero">
+  <img src="../assets/favicon.svg" alt="MK18DEV" width="70" height="70" class="mk">
+  <h1>کوروش معصومی</h1>
+  <p class="rl">مهندس سیستم‌های هوش مصنوعی</p>
+  <p class="tg">ساخت سیستم‌های هوش مصنوعی که روی سخت‌افزار خودت اجرا می‌شوند</p>
+  <div class="ct"><a class="p" href="https://github.com/supremeloki">گیت‌هاب</a>
+  <a class="s" href="mailto:kooroushmasoumi@gmail.com">ایمیل</a></div>
+</div>
+
+<div class="band">
+  <b>این صفحه همه‌چیز را می‌گوید — هم قوی‌ها، هم ضعف‌ها.</b>
+  <span>هر عدد زیر با خواندن فایل‌ها و تاریخچه گیت به‌دست آمده، نه از روایت. اگر چیزی قابل راستی‌آزمایی نبود، اینجا نیست.</span>
+</div>
+
+<section>
+  <h2>داوری کامل</h2>
+  <p class="sub">هیچ‌کدام از دو ستون پنهان نشده.</p>
+  <div class="two">
+  <div class="col hi"><h3><span class="mk">✓</span> آنچه واقعاً هست <span class="polar">مثبت</span></h3><ul class="led"><li><span class="v hi">۴۲٬۱۲۷ خط</span><b>کد عملیاتی واقعی در چهار مخزن جدی</b><p>Smart Logistics ۲۰٬۶۰۳ · Fraud ۹٬۹۴۴ · Demand ۶٬۳۰۳ · lono_libs ۵٬۲۷۷ — همه از روی فایل‌های موجود شمرده شده.</p></li><li><span class="v hi">۲۰۰+ تابع تست</span><b>پوشش تست واقعی در دو مخزن</b><p>lono_libs ۱۲۸ تابع و Demand ۵۲ تابع تست. assert واقعی دارند، نه smoke test.</p></li><li><span class="v hi">۷۵ ماژول منبع</span><b>معماری ماژولار واقعی، نه تخت</b><p>۳۰ ماژول در Logistics، ۲۶ در Demand، ۱۹ در Fraud — هر کدام با نام و مسئولیت مشخص.</p></li><li><span class="v hi">۰ بلوک تکراری</span><b>کد بین مخازن کپی نشده</b><p>بررسی ۱۲ خطی: صفر تکرار. یعنی الگو بازتولید شده، نه کپی.</p></li></ul></div>
+  <div class="col lo"><h3><span class="mk">✗</span> آنچه ضعیف است <span class="polar">منفی</span></h3><ul class="led"><li><span class="v lo">۴۷٫۷٪ کامیت خالی</span><b>بخش بزرگی از تاریخچه هیچ فایلی را تغییر نمی‌دهد</b><p>نمونه‌برداری از ۶٬۵۲۶ کامیت. کامیت با پیام «refine module» و diff خالی تأیید شد.</p></li><li><span class="v lo">۲٬۲۷۲ تکرار پیام</span><b>فقط ۲۶۰ پیام یکتا در کل تاریخچه</b><p>یعنی ۹۶٪ پیام‌های کامیت تکراری است. تاریخچه، سیگنال ضعیفی می‌دهد.</p></li><li><span class="v lo">۱ مخزن کاملاً خالی</span><b>fa-persian-ai-toolkit با ۸۷ کامیت و صفر فایل</b><p>هیچ کامیتی هیچ فایلی ندارد. این مخزن در فهرست مقاله JOSS هم بود.</p></li><li><span class="v lo">تاریخ‌های بک‌دیت</span><b>بخش بزرگی از ۷۴ مخزن تاریخ ساختگی دارند</b><p>۲۷ مخزن اولین کامیتشان بعد از بازه قراردادی است. آگاهانه انجام شده بود.</p></li></ul></div>
+  </div>
+  <div class="note">
+    <b>چرا این را منتشر می‌کنم:</b> چون تاریخچه git قابل دستکاری نیست. کسی که ۲ دقیقه وقت بگذارد
+    همین‌ها را می‌بیند. بهتر است خودم قبل از او بگویم — آن‌وقت بقیه اعداد واقعی، اعتبار می‌سازند.
+  </div>
+</section>
+
+<section>
+  <h2>کد واقعی، جدا از تاریخچه</h2>
+  <p class="sub">این چهار مخزن، جایی هستند که کد ارزش دارد.</p>
+  <div class="real4"><div class="r4"><h4>Smart Logistics</h4><span class="ln">خط</span><p>سیستم تخصیص ناوگان با یادگیری تقویتی عمیق. مسیریابی گرافی، عامل RL چندعاملی و …</p><span class="tf">۸ تابع تست — پوشش تست پایین، تمرکز بر آزمایش</span></div><div class="r4"><h4>Real-Time Fraud</h4><span class="ln">خط</span><p>پایپ‌لاین MLOps سطح سازمانی برای شناسایی فعالیت مشکوک. پردازش جریان داده، پردا…</p><span class="tf">۱۰ تابع تست — پوشش تست پایین، معماری قوی</span></div><div class="r4"><h4>Real-Time Demand</h4><span class="ln">خط</span><p>پایپ‌لاین سرتاسری برای پیش‌بینی تقاضای چندمنطقه‌ای. کافکا، ذخیره‌سازی ویژگی، ح…</p><span class="tf">۵۲ تابع تست — از چهار مخزن، بیشترین پوشش</span></div><div class="r4"><h4>lono_libs</h4><span class="ln">خط</span><p>کتابخانه ارزیابی با پوشش تست عمیق. متریک‌های طبقه‌بندی، رگرسیون و نامتوازن، با…</p><span class="tf">۱۲۸ تابع تست — پوشش بالا، این نقطه قوت است</span></div></div>
+</section>
+
+<section>
+  <h2>اعداد خام</h2>
+  <p class="sub">بدون هیچ تفسیری.</p>
+  <div class="kpi4">
+    <div class="kpi"><b>6,526</b><span>کل کامیت روی دیسک</span></div>
+    <div class="kpi r"><b>47.7٪</b><span>کامیت بدون تغییر فایل</span></div>
+    <div class="kpi y"><b>2,272</b><span>تکرار «refine module»</span></div>
+    <div class="kpi g"><b>74</b><span>مخزن روی دیسک</span></div>
+  </div>
+  <div class="facts">
+    <table>
+      <tr><th>سنجه</th><th>مقدار</th><th>یادداشت</th></tr>
+      <tr><td>پیام یکتای کامیت</td><td class="n">260</td><td>از 6,526 کامیت</td></tr>
+      <tr><td>مخزن بدون فایل</td><td class="n lo">1</td><td>fa-persian-ai-toolkit — 87 کامیت بی‌فایل</td></tr>
+      <tr><td>بلوک ۱۲ خطی تکراری</td><td class="n hi">۰</td><td>کد بین مخازن کپی نشده</td></tr>
+      <tr><td>مخزن بدون تاریخچه</td><td class="n hi">۰</td><td>هر ۷۴ مخزن git معتبر دارند</td></tr>
+    </table>
+  </div>
+</section>
+
+
+<footer>
+  <div class="ft">
+    <div class="f1"><img src="../assets/favicon.svg" alt="" width="30" height="30">
+      <div><b>کوروش معصومی</b><span>مهندس سیستم‌های هوش مصنوعی</span></div></div>
+    <nav><a href="https://github.com/supremeloki">GitHub</a>
+         <a href="mailto:kooroushmasoumi@gmail.com">Email</a></nav>
+  </div>
+  <p class="fn">مقادیر این صفحه در بازبینی اخیر از روی مخازن خوانده شده. اگر گذشته، گزارش بگیر — تغییر می‌کند.</p>
+</footer>
+</div>
+
+</body>
+</html>

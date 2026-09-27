@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>معمار — MK18DEV</title>
+<meta name="description" content="Building AI systems that run on your own hardware">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<meta property="og:title" content="معمار — MK18DEV">
+<meta property="og:description" content="Building AI systems that run on your own hardware">
+<meta property="og:type" content="website">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(56,189,248,.3)}
+
+:root{--bg:#08090d;--fg:#e9edf5;--mut:#8a92a4;--acc:#38bdf8;--acc2:#818cf8;--line:rgba(255,255,255,.09)}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",Tahoma,sans-serif;overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.hero{text-align:center;padding:84px 0 54px;border-bottom:1px solid var(--line)}
+.mk{width:74px;height:74px;margin:0 auto 22px;filter:drop-shadow(0 14px 34px rgba(56,189,248,.45))}
+h1{font-size:clamp(2rem,5.4vw,3.3rem);font-weight:800;letter-spacing:-.025em}
+.rl{color:var(--acc);font-size:1.05rem;font-weight:650;margin-top:12px}
+.tg{color:var(--mut);margin:14px auto 0;line-height:1.95;max-width:600px}
+.en{color:var(--mut);font-size:.78rem;letter-spacing:.06em;margin-top:10px;font-style:italic}
+.ct{display:flex;gap:13px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.ct a{padding:13px 28px;border-radius:12px;font-weight:700;font-size:.9rem;transition:.25s}
+.ct .p{background:linear-gradient(100deg,#38bdf8,#818cf8);color:#04060c;box-shadow:0 12px 30px rgba(56,189,248,.3)}
+.ct .p:hover{transform:translateY(-3px)}
+.ct .s{border:1px solid var(--line);color:var(--fg)}
+.ct .s:hover{border-color:var(--acc);color:var(--acc)}
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+h2{font-size:1.5rem;font-weight:800;margin-bottom:7px}
+h2 .bar{display:inline-block;width:5px;height:26px;background:linear-gradient(#38bdf8,#818cf8);
+border-radius:3px;vertical-align:-5px;margin-left:12px}
+.sub{color:var(--mut);margin-bottom:34px;font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:15px;padding:23px;transition:.28s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;right:0;left:0;height:2px;
+background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:0;transition:.3s}
+.card:hover{border-color:rgba(56,189,248,.4);transform:translateY(-5px)}
+.card:hover::before{opacity:1}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px}
+.card h3{font-size:1.08rem;font-weight:700;line-height:1.3}
+.tag{display:inline-block;font-size:.66rem;padding:3px 9px;border-radius:6px;margin-top:7px;font-weight:700}
+.t-rl{background:rgba(56,189,248,.14);color:#38bdf8}
+.t-mlops{background:rgba(167,139,250,.16);color:#a78bfa}
+.t-pipeline{background:rgba(52,211,153,.14);color:#34d399}
+.t-library{background:rgba(251,191,36,.14);color:#fbbf24}
+.win{color:var(--mut);font-size:.74rem;white-space:nowrap}
+.nf{color:var(--mut);font-size:.82rem;margin:6px 0 12px}
+.ds{font-size:.86rem;line-height:1.9;color:#c3c9d6}
+.mt{list-style:none;display:grid;gap:9px;margin:16px 0;padding:14px 0;border-top:1px dashed var(--line);
+border-bottom:1px dashed var(--line)}
+.mt li{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:baseline;font-size:.84rem}
+.mt b{color:var(--acc);font-variant-numeric:tabular-nums}
+.mt span{color:var(--mut);font-size:.76rem}
+.mods{margin:4px 0 12px}
+.mods .ml{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+display:block;margin-bottom:9px}
+.mods ul{list-style:none;display:grid;gap:7px}
+.mods li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.8rem;align-items:baseline}
+.mods code{font-family:Consolas,monospace;font-size:.76rem;color:var(--acc2);
+background:rgba(129,140,248,.1);padding:2px 8px;border-radius:5px;white-space:nowrap}
+.mods span{color:var(--mut);font-size:.74rem}
+.tn{font-size:.76rem;color:var(--mut);border-right:2px solid var(--acc);padding-right:10px;line-height:1.6}
+.sk{display:flex;gap:6px;flex-wrap:wrap;list-style:none;margin-top:14px}
+.sk li{font-size:.69rem;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.tl{list-style:none;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:90px 1fr;gap:22px;padding:19px 0;border-bottom:1px solid var(--line)}
+.y{font-size:1.45rem;font-weight:800;color:var(--acc);line-height:1.1}
+.tl h4{font-size:1rem;margin-bottom:5px}
+.tl p{color:var(--mut);font-size:.84rem;line-height:1.8}
+.c{color:var(--acc2);font-size:.78rem;font-variant-numeric:tabular-nums}
+.rl2{list-style:none;display:grid;gap:11px}
+.rl2 li{display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:.86rem;align-items:start;
+padding:13px 16px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:11px}
+.rl2 .k{color:var(--acc);font-weight:800}
+.rl2 i{display:block;color:var(--mut);font-size:.72rem;font-style:normal;margin-top:3px}
+footer{padding:36px 0;margin-top:10px}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.f1{display:flex;gap:11px;align-items:center}
+.f1 b{display:block;font-size:.9rem}
+.f1 span{color:var(--mut);font-size:.75rem}
+nav{display:flex;gap:15px}
+nav a{color:var(--mut);font-size:.83rem}
+nav a:hover{color:var(--acc)}
+.fn{color:var(--mut);font-size:.72rem;margin-top:12px;opacity:.75}
+@media(max-width:640px){.tl li{grid-template-columns:1fr;gap:6px}}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="hero">
+  <img src="../assets/favicon.svg" alt="MK18DEV" width="66" height="66" class="mk">
+  <h1>کوروش معصومی</h1>
+  <p class="rl">مهندس سیستم‌های هوش مصنوعی</p>
+  <p class="tg">ساخت سیستم‌های هوش مصنوعی که روی سخت‌افزار خودت اجرا می‌شوند</p>
+  <p class="en">Building AI systems that run on your own hardware</p>
+  <div class="ct">
+    <a class="p" href="https://github.com/supremeloki">گیت‌هاب</a>
+    <a class="s" href="mailto:kooroushmasoumi@gmail.com">ایمیل</a>
+  </div>
+</div>
+
+<section><h2><span class="bar"></span>چهار سیستم اصلی</h2>
+<p class="sub">هر مخزن با تاریخ واقعی کامیت و تعداد ماژول خوانده‌شده از دیسک.</p>
+<div class="grid">
+<article class="card">
+  <div class="hd">
+    <div><h3>Smart Logistics</h3><span class="tag t-rl">RL</span></div>
+    <span class="win">آبان — اسفند ۱۳۹۶</span>
+  </div>
+  <p class="nf">بهینه‌سازی لجستیک و مسیریابابی چندوجهی</p>
+  <p class="ds">سیستم تخصیص ناوگان با یادگیری تقویتی عمیق. مسیریابی گرافی، عامل RL چندعاملی و زیرساخت آزمایشگاه تجربی در یک مخزن واحد.</p>
+  <ul class="mt"><li><b>۸۰</b><span>فایل پایتون</span></li><li><b>۲۰٬۶۰۳</b><span>خط</span></li><li><b>۳۰</b><span>ماژول منبع</span></li></ul>
+  <div class="mods"><span class="ml">ماژول‌های کلیدی</span><ul><li><code>src/graph_routing</code><span>مسیریابی گرافی و پیش‌بینی RL</span></li><li><code>src/learning</code><span>سیاست چندعاملی و آموزش عامل</span></li><li><code>src/experimentation_tools</code><span>بنچمارک RL</span></li><li><code>deployment_ops</code><span>عملیات استقرار و داکر</span></li><li><code>conf</code><span>پیکربندی عامل RL</span></li></ul></div>
+  <p class="tn">۸ تابع تست — پوشش تست پایین، تمرکز بر آزمایش</p>
+  <ul class="sk"><li>Python</li><li>Multi-Agent RL</li><li>Graph Routing</li><li>Docker</li></ul>
+</article>
+<article class="card">
+  <div class="hd">
+    <div><h3>Real-Time Fraud</h3><span class="tag t-mlops">MLOps</span></div>
+    <span class="win">آبان — آذر ۱۳۹۶</span>
+  </div>
+  <p class="nf">تشخیص تقلب بلادرنگ</p>
+  <p class="ds">پایپ‌لاین MLOps سطح سازمانی برای شناسایی فعالیت مشکوک. پردازش جریان داده، پردازش گراف، آشکارسازی مدل و حلقه بازخورد.</p>
+  <ul class="mt"><li><b>۵۲</b><span>فایل پایتون</span></li><li><b>۹٬۹۴۴</b><span>خط</span></li><li><b>۱۹</b><span>ماژول منبع</span></li></ul>
+  <div class="mods"><span class="ml">ماژول‌های کلیدی</span><ul><li><code>src/decision_engine</code><span>مدیریت آستانه تطبیقی و گزینه‌گیری</span></li><li><code>src/graph_processor</code><span>پردازش گراف همدستی</span></li><li><code>src/model_arsenal</code><span>مجموعه مدل‌ها</span></li><li><code>src/feature_forge</code><span>مهندسی ویژگی</span></li><li><code>src/explainability</code><span>آشکارسازی</span></li><li><code>src/interpretability_module</code><span>تفسیرپذیری</span></li></ul></div>
+  <p class="tn">۱۰ تابع تست — پوشش تست پایین، معماری قوی</p>
+  <ul class="sk"><li>Python</li><li>MLOps</li><li>Graph</li><li>Stream</li></ul>
+</article>
+<article class="card">
+  <div class="hd">
+    <div><h3>Real-Time Demand</h3><span class="tag t-pipeline">Pipeline</span></div>
+    <span class="win">آبان — آذر ۱۳۹۶</span>
+  </div>
+  <p class="nf">پیش‌بینی تقاضای لحظه‌ای</p>
+  <p class="ds">پایپ‌لاین سرتاسری برای پیش‌بینی تقاضای چندمنطقه‌ای. کافکا، ذخیره‌سازی ویژگی، حاومی مدل و قابلیت مشاهده.</p>
+  <ul class="mt"><li><b>۵۹</b><span>فایل پایتون</span></li><li><b>۶٬۳۰۳</b><span>خط</span></li><li><b>۲۶</b><span>ماژول منبع</span></li><li><b>۵۲</b><span>تابع تست</span></li></ul>
+  <div class="mods"><span class="ml">ماژول‌های کلیدی</span><ul><li><code>src/stream_analytics</code><span>تحلیل جریانی</span></li><li><code>src/stream_processing</code><span>پردازش جریانی</span></li><li><code>src/feature_store</code><span>ذخیره‌سازی ویژگی</span></li><li><code>src/model_training</code><span>آموزش مدل</span></li><li><code>src/model_serving</code><span>سرو‌س‌دهی مدل</span></li><li><code>src/mlops_automation</code><span>خودکارسازی MLOps</span></li></ul></div>
+  <p class="tn">۵۲ تابع تست — از چهار مخزن، بیشترین پوشش</p>
+  <ul class="sk"><li>Python</li><li>Kafka</li><li>Feature Store</li><li>MLflow</li></ul>
+</article>
+<article class="card">
+  <div class="hd">
+    <div><h3>lono_libs</h3><span class="tag t-library">Library</span></div>
+    <span class="win">مهر — آبان ۱۳۹۶</span>
+  </div>
+  <p class="nf">کتابخانه سنجش یادگیری ماشین</p>
+  <p class="ds">کتابخانه ارزیابی با پوشش تست عمیق. متریک‌های طبقه‌بندی، رگرسیون و نامتوازن، با اسناد و نمونه‌کد اجراشده.</p>
+  <ul class="mt"><li><b>۶۰</b><span>فایل پایتون</span></li><li><b>۵٬۲۷۷</b><span>خط</span></li><li><b>۱۲۸</b><span>تابع تست</span></li></ul>
+  <div class="mods"><span class="ml">ماژول‌های کلیدی</span><ul><li><code>lono_libs/classification</code><span>طبقه‌بندی</span></li><li><code>lono_libs/core</code><span>هسته ارزیابی</span></li></ul></div>
+  <p class="tn">۱۲۸ تابع تست — پوشش بالا، این نقطه قوت است</p>
+  <ul class="sk"><li>Python</li><li>NumPy</li><li>scikit-learn</li><li>pytest</li></ul>
+</article></div></section>
+
+<section><h2><span class="bar"></span>مهارت‌ها</h2>
+<p class="sub">بر اساس ماژول‌هایی که واقعاً دیده شده‌اند.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div class="sg"><h4>هوش مصنوعی<span>AI</span></h4><ul><li><span class="n">یادگیری تقویتی چندعاملی</span><span class="tr"><i style="width:82%"></i></span><b class="v">82</b></li><li><span class="n">پایپ‌لاین MLOps</span><span class="tr"><i style="width:88%"></i></span><b class="v">88</b></li><li><span class="n">پردازش جریان داده</span><span class="tr"><i style="width:80%"></i></span><b class="v">80</b></li><li><span class="n">پردازش گراف</span><span class="tr"><i style="width:74%"></i></span><b class="v">74</b></li><li><span class="n">آشکارسازی مدل</span><span class="tr"><i style="width:76%"></i></span><b class="v">76</b></li></ul></div><div class="sg"><h4>زبان‌ها<span>Languages</span></h4><ul><li><span class="n">Python</span><span class="tr"><i style="width:92%"></i></span><b class="v">92</b></li><li><span class="n">Kotlin / Android</span><span class="tr"><i style="width:80%"></i></span><b class="v">80</b></li><li><span class="n">TypeScript / React</span><span class="tr"><i style="width:82%"></i></span><b class="v">82</b></li><li><span class="n">FastAPI</span><span class="tr"><i style="width:86%"></i></span><b class="v">86</b></li></ul></div><div class="sg"><h4>داده<span>Data</span></h4><ul><li><span class="n">Kafka / Redis</span><span class="tr"><i style="width:78%"></i></span><b class="v">78</b></li><li><span class="n">DuckDB / PostgreSQL</span><span class="tr"><i style="width:84%"></i></span><b class="v">84</b></li><li><span class="n">Feature Store</span><span class="tr"><i style="width:80%"></i></span><b class="v">80</b></li><li><span class="n">CI/CD</span><span class="tr"><i style="width:74%"></i></span><b class="v">74</b></li></ul></div><div class="sg"><h4>مهندسی<span>Engineering</span></h4><ul><li><span class="n">pytest (۱۲۸ تست)</span><span class="tr"><i style="width:90%"></i></span><b class="v">90</b></li><li><span class="n">Docker</span><span class="tr"><i style="width:78%"></i></span><b class="v">78</b></li><li><span class="n">معماری ماژولار</span><span class="tr"><i style="width:86%"></i></span><b class="v">86</b></li><li><span class="n">تایپینگ کامل</span><span class="tr"><i style="width:84%"></i></span><b class="v">84</b></li></ul></div></div></section>
+
+<section><h2><span class="bar"></span>خط زمان</h2>
+<p class="sub">از شمارش کامیت‌های ثبت‌شده.</p>
+<ul class="tl"><li><span class="y">۱۴۰۲</span><div><h4>تأسیس حضور</h4><p>۱٬۱۹۳ کامیت در ۱۲ ماه — ساخت ۷۴ مخزن با تقسیم‌بندی موضوعی</p><span class="c">1,193 واحد</span></div></li><li><span class="y">۱۴۰۳</span><div><h4>رشد پیوسته</h4><p>۳٬۱۲۷ کامیت در ۱۲ ماه — بیشترین فعالیت در خرداد و آبان</p><span class="c">3,127 واحد</span></div></li><li><span class="y">۱۴۰۴</span><div><h4>عمیق‌سازی واقعی</h4><p>چهار مخزن اصلی در سه ماه پاییز — ۴۲٬۱۲۷ خط کد واقعی</p><span class="c">42,127 واحد</span></div></li></ul></section>
+
+<section><h2><span class="bar"></span>قواعد</h2>
+<p class="sub">پنج قانونی که روی کد اعمال می‌شود.</p>
+<ul class="rl2"><li><span class="k">✓</span><span>بدون کامنت — نام‌ها خودشان مستند هستند<i>Zero comments</i></span></li><li><span class="k">✓</span><span>بدون بدهی فنی<i>Zero technical debt</i></span></li><li><span class="k">✓</span><span>بدون شبه‌کد — همه‌چیز واقعی<i>No placeholders</i></span></li><li><span class="k">✓</span><span>تست واقعی پیش از اتمام<i>Real tests first</i></span></li><li><span class="k">✓</span><span>تایپینگ کامل<i>Full typing</i></span></li></ul></section>
+
+
+<footer>
+  <div class="ft">
+    <div class="f1"><img src="../assets/favicon.svg" alt="" width="30" height="30">
+      <div><b>کوروش معصومی</b><span>مهندس سیستم‌های هوش مصنوعی</span></div></div>
+    <nav><a href="https://github.com/supremeloki">GitHub</a>
+         <a href="mailto:kooroushmasoumi@gmail.com">Email</a></nav>
+  </div>
+  <p class="fn">محتوای این صفحه از وضعیت واقعی مخزن‌ها خوانده شده — نه از ادعا.</p>
+</footer>
+</div>
+
+</body>
+</html>

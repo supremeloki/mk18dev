@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جمع‌بندی — MK18DEV</title>
+<meta name="description" content="همه چیز در یک صفحه دافعه‌شده — رزومه‌وار">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<meta property="og:title" content="جمع‌بندی — MK18DEV">
+<meta property="og:description" content="همه چیز در یک صفحه دافعه‌شده — رزومه‌وار">
+<meta property="og:type" content="website">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(56,189,248,.3)}
+
+:root{--bg:#080a0f;--fg:#e8ecf5;--mut:#8a93a5;--acc:#38bdf8;--acc2:#a78bfa;--acc3:#34d399;--line:rgba(255,255,255,.09)}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",Tahoma,sans-serif;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:26px 0;
+border-bottom:1px solid solid var(--line);border-bottom:1px solid var(--line)}
+.top .id{display:flex;gap:14px;align-items:center}
+.top .mk{width:46px;height:46px}
+.top h1{font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+.top .rl{color:var(--acc);font-size:.84rem;font-weight:650;margin-top:3px}
+.top nav{display:flex;gap:16px}
+.top nav a{color:var(--mut);font-size:.8rem}
+.top nav a:hover{color:var(--acc)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:11px;padding:22px 0;
+border-bottom:1px solid var(--line)}
+.k{background:rgba(255,255,255,.028);border:1px solid var(--line);border-radius:11px;padding:14px}
+.k b{display:block;font-size:1.4rem;font-weight:800;color:var(--acc);font-variant-numeric:tabular-nums}
+.k span{color:var(--mut);font-size:.72rem}
+.k.r b{color:#f87171}.k.y b{color:#fbbf24}.k.g b{color:var(--acc3)}
+section{padding:30px 0;border-bottom:1px solid var(--line)}
+h2{font-size:1.05rem;font-weight:800;margin-bottom:15px;display:flex;align-items:center;gap:9px}
+h2 .b{display:inline-block;width:4px;height:18px;background:linear-gradient(#38bdf8,#a78bfa);border-radius:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:rgba(255,255,255,.028);border:1px solid var(--line);border-radius:12px;padding:16px;transition:.25s}
+.card:hover{border-color:rgba(56,189,248,.38);transform:translateY(-3px)}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:5px}
+.card .nf{color:var(--mut);font-size:.76rem;margin-bottom:8px}
+.card p{font-size:.78rem;line-height:1.75;color:#c4cad7}
+.card .ln{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;padding-top:10px;
+border-top:1px dashed var(--line)}
+.card .ln b{color:var(--acc);font-size:.86rem;font-variant-numeric:tabular-nums}
+.card .ln span{color:var(--mut);font-size:.66rem;display:block}
+.sk2{display:grid;gap:8px}
+.sk2 li{list-style:none;display:grid;grid-template-columns:1fr 1fr 24px;gap:8px;align-items:center;
+font-size:.76rem}
+.tr{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.tr i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.num{color:var(--mut);font-size:.7rem}
+.tl{display:grid;gap:0}
+.tl li{list-style:none;display:grid;grid-template-columns:70px 1fr;gap:14px;padding:11px 0;
+border-bottom:1px solid var(--line);font-size:.8rem}
+.tl li:last-child{border-bottom:0}
+.tl .y{color:var(--acc);font-weight:800;font-size:.95rem}
+.tl p{color:var(--mut);line-height:1.7}
+.rl2{display:grid;gap:8px}
+.rl2 li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.8rem}
+.rl2 .k{color:var(--acc);font-weight:800}
+.rl2 i{display:block;color:var(--mut);font-size:.7rem;font-style:normal;margin-top:2px}
+footer{padding:26px 0}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+font-size:.82rem}
+.f1{display:flex;gap:10px;align-items:center;color:var(--mut)}
+nav{display:flex;gap:14px}
+nav a{color:var(--mut);font-size:.8rem}
+nav a:hover{color:var(--acc)}
+.fn{color:var(--mut);font-size:.7rem;margin-top:9px;opacity:.75}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="top">
+  <div class="id"><img src="../assets/favicon.svg" alt="" class="mk">
+    <div><h1>کوروش معصومی</h1><p class="rl">مهندس سیستم‌های هوش مصنوعی</p></div></div>
+  <nav><a href="#s">سیستم‌ها</a><a href="#sk">مهارت‌ها</a><a href="#tl">زمان</a>
+  <a href="https://github.com/supremeloki">گیت‌هاب</a></nav>
+</div>
+<div class="kpis">
+  <div class="k"><b>6,526</b><span>کامیت</span></div>
+  <div class="k r"><b>47.7٪</b><span>کامیت خالی</span></div>
+  <div class="k y"><b>2,272</b><span>تکرار پیام</span></div>
+  <div class="k g"><b>74</b><span>مخزن</span></div>
+</div>
+<section id="s"><h2><span class="b"></span>چهار سیستم</h2><div class="grid">
+<div class="card"><h3>Smart Logistics</h3><p class="nf">RL · آبان — اسفند ۱۳۹۶</p>
+<p>سیستم تخصیص ناوگان با یادگیری تقویتی عمیق. مسیریابی گرافی، عامل RL چندعامل…</p>
+<div class="ln"><div><b>خط</b><span>خط</span></div>
+<div><b>ماژول منبع</b><span>ماژول</span></div>
+<div><b>فایل پایتون</b><span>فایل</span></div></div></div>
+<div class="card"><h3>Real-Time Fraud</h3><p class="nf">MLOps · آبان — آذر ۱۳۹۶</p>
+<p>پایپ‌لاین MLOps سطح سازمانی برای شناسایی فعالیت مشکوک. پردازش جریان داده، …</p>
+<div class="ln"><div><b>خط</b><span>خط</span></div>
+<div><b>ماژول منبع</b><span>ماژول</span></div>
+<div><b>فایل پایتون</b><span>فایل</span></div></div></div>
+<div class="card"><h3>Real-Time Demand</h3><p class="nf">Pipeline · آبان — آذر ۱۳۹۶</p>
+<p>پایپ‌لاین سرتاسری برای پیش‌بینی تقاضای چندمنطقه‌ای. کافکا، ذخیره‌سازی ویژگ…</p>
+<div class="ln"><div><b>خط</b><span>خط</span></div>
+<div><b>ماژول منبع</b><span>ماژول</span></div>
+<div><b>فایل پایتون</b><span>فایل</span></div></div></div>
+<div class="card"><h3>lono_libs</h3><p class="nf">Library · مهر — آبان ۱۳۹۶</p>
+<p>کتابخانه ارزیابی با پوشش تست عمیق. متریک‌های طبقه‌بندی، رگرسیون و نامتوازن…</p>
+<div class="ln"><div><b>خط</b><span>خط</span></div>
+<div><b>تابع تست</b><span>ماژول</span></div>
+<div><b>فایل پایتون</b><span>فایل</span></div></div></div></div></section>
+<section id="sk"><h2><span class="b"></span>مهارت‌ها</h2><ul class="sk2"><li><span>هوش مصنوعی</span><span class="tr"><i style="width:82%"></i></span><b class="num">82</b><span class="tr"><i style="width:88%"></i></span><b class="num">88</b><span class="tr"><i style="width:80%"></i></span><b class="num">80</b><span class="tr"><i style="width:74%"></i></span><b class="num">74</b><span class="tr"><i style="width:76%"></i></span><b class="num">76</b></li><li><span>زبان‌ها</span><span class="tr"><i style="width:92%"></i></span><b class="num">92</b><span class="tr"><i style="width:80%"></i></span><b class="num">80</b><span class="tr"><i style="width:82%"></i></span><b class="num">82</b><span class="tr"><i style="width:86%"></i></span><b class="num">86</b></li><li><span>داده</span><span class="tr"><i style="width:78%"></i></span><b class="num">78</b><span class="tr"><i style="width:84%"></i></span><b class="num">84</b><span class="tr"><i style="width:80%"></i></span><b class="num">80</b><span class="tr"><i style="width:74%"></i></span><b class="num">74</b></li><li><span>مهندسی</span><span class="tr"><i style="width:90%"></i></span><b class="num">90</b><span class="tr"><i style="width:78%"></i></span><b class="num">78</b><span class="tr"><i style="width:86%"></i></span><b class="num">86</b><span class="tr"><i style="width:84%"></i></span><b class="num">84</b></li></ul></section>
+<section id="tl"><h2><span class="b"></span>خط زمان</h2><ul class="tl"><li><span class="y">۱۴۰۲</span><p>تأسیس حضور — ۱٬۱۹۳ کامیت در ۱۲ ماه — ساخت ۷۴ مخزن با تقسیم‌بندی م… <b style="color:var(--acc2)">1,193</b></p></li><li><span class="y">۱۴۰۳</span><p>رشد پیوسته — ۳٬۱۲۷ کامیت در ۱۲ ماه — بیشترین فعالیت در خرداد و آب… <b style="color:var(--acc2)">3,127</b></p></li><li><span class="y">۱۴۰۴</span><p>عمیق‌سازی واقعی — چهار مخزن اصلی در سه ماه پاییز — ۴۲٬۱۲۷ خط کد واقعی… <b style="color:var(--acc2)">42,127</b></p></li></ul>
+<h2 style="margin-top:24px"><span class="b"></span>قواعد</h2><ul class="rl2"><li><span class="k">✓</span><span>بدون کامنت — نام‌ها خودشان مستند هستند<i>Zero comments</i></span></li><li><span class="k">✓</span><span>بدون بدهی فنی<i>Zero technical debt</i></span></li><li><span class="k">✓</span><span>بدون شبه‌کد — همه‌چیز واقعی<i>No placeholders</i></span></li><li><span class="k">✓</span><span>تست واقعی پیش از اتمام<i>Real tests first</i></span></li><li><span class="k">✓</span><span>تایپینگ کامل<i>Full typing</i></span></li></ul></section>
+<footer><div class="ft">
+  <div class="f1"><img src="../assets/favicon.svg" alt="" width="26" height="26">
+  <div><b>کوروش معصومی</b><br><span>مهندس سیستم‌های هوش مصنوعی</span></div></div>
+  <nav><a href="https://github.com/supremeloki">GitHub</a><a href="mailto:kooroushmasoumi@gmail.com">Email</a></nav>
+</div><p class="fn">محتوا از وضعیت واقعی مخازن خوانده شده.</p></footer>
+</div>
+
+</body>
+</html>
