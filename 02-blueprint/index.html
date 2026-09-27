@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MK18DEV — spec sheet</title>
+<meta name="description" content="AI systems that run on your machine">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<meta property="og:title" content="MK18DEV — spec sheet">
+<meta property="og:description" content="AI systems that run on your machine">
+<meta property="og:type" content="website">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(56,189,248,.3)}
+
+:root{--bg:#0a1120;--grid:rgba(96,165,250,.07);--fg:#dbeafe;--mut:#7c8fb3;--acc:#60a5fa;--acc2:#34d399;--line:rgba(96,165,250,.22)}
+body{background:var(--bg);color:var(--fg);font-family:Consolas,"Courier New",monospace;overflow-x:hidden;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+background-size:44px 44px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px;position:relative}
+.hero{padding:88px 0 60px;border-bottom:2px dashed var(--line)}
+.tagbox{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);
+border-radius:6px;padding:7px 14px;font-size:.76rem;color:var(--acc);letter-spacing:.14em;text-transform:uppercase}
+.tagbox::before{content:"";width:7px;height:7px;background:var(--acc2);border-radius:50%;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+h1{font-size:clamp(2.2rem,7vw,4.2rem);font-weight:800;margin:22px 0 8px;letter-spacing:-.01em}
+h1 span{color:var(--acc2)}
+.role{color:var(--acc);font-size:1rem;letter-spacing:.06em}
+.tag{color:var(--mut);margin-top:14px;line-height:1.9;max-width:620px;font-size:.92rem}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.cta a{font-family:inherit;font-size:.85rem;letter-spacing:.08em;padding:12px 22px;border-radius:4px;transition:.2s;text-transform:uppercase}
+.cta .p{background:var(--acc);color:#04101f;font-weight:700}
+.cta .p:hover{background:var(--acc2)}
+.cta .s{border:1px solid var(--line);color:var(--fg)}
+.cta .s:hover{border-color:var(--acc2);color:var(--acc2)}
+section{padding:64px 0;border-bottom:2px dashed var(--line)}
+h2{font-size:1.5rem;font-weight:750;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.idx{color:var(--acc2);font-size:.8rem}
+.sub{color:var(--mut);margin-bottom:32px;font-size:.85rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.stat{border:1px solid var(--line);border-radius:4px;padding:20px;position:relative;background:rgba(10,17,32,.6)}
+.stat::before{content:attr(data-n);position:absolute;top:8px;left:12px;font-size:.66rem;color:var(--acc2)}
+.stat b{display:block;font-size:1.9rem;font-weight:800;color:var(--acc);margin-top:10px}
+.stat span{color:var(--mut);font-size:.78rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:4px;padding:22px;background:rgba(10,17,32,.7);transition:.25s}
+.card:hover{border-color:var(--acc);transform:translateY(-4px)}
+.card header{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding-bottom:12px}
+.card h3{font-size:1.05rem;font-weight:700;color:var(--fg)}
+.card h3::before{content:"■ ";color:var(--acc2);font-size:.8rem}
+.year{color:var(--acc2);font-size:.72rem}
+.name-fa{color:var(--acc);font-size:.82rem;margin:12px 0 8px}
+.desc{color:var(--mut);font-size:.84rem;line-height:1.85}
+.metrics{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.metric{border:1px solid var(--line);border-radius:3px;padding:5px 10px;font-size:.74rem}
+.metric b{color:var(--acc2);margin-left:5px}
+.stack{display:flex;gap:5px;flex-wrap:wrap;list-style:none}
+.stack li{font-size:.68rem;color:var(--mut);border:1px solid var(--line);border-radius:3px;padding:3px 8px}
+.sgroup{margin-bottom:26px}
+.sgroup h4{font-size:.88rem;color:var(--acc2);margin-bottom:12px;letter-spacing:.1em}
+.sgroup ul{list-style:none;display:grid;gap:9px}
+.sgroup li{display:grid;grid-template-columns:1fr 1.4fr 28px;gap:10px;align-items:center;font-size:.8rem}
+.track{height:7px;border:1px solid var(--line);border-radius:2px;position:relative;overflow:hidden}
+.track i{position:absolute;inset:0;transform-origin:right;background:repeating-linear-gradient(90deg,var(--acc) 0 4px,transparent 4px 7px)}
+.num{color:var(--mut);font-size:.72rem}
+.tl{list-style:none;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:70px 1fr;gap:20px;padding-bottom:26px;position:relative}
+.tl li::before{content:"";position:absolute;right:-1px;top:20px;bottom:-4px;width:1px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl li::after{content:"";position:absolute;right:-4px;top:6px;width:7px;height:7px;background:var(--acc2)}
+.yr{font-size:1.25rem;font-weight:800;color:var(--acc)}
+.tl h4{font-size:.98rem;margin:3px 0 5px}
+.tl p{color:var(--mut);font-size:.82rem;line-height:1.75}
+.cnt{display:inline-block;margin-top:7px;font-size:.7rem;color:var(--acc2);border:1px dashed var(--line);padding:2px 9px;border-radius:3px}
+.rules{list-style:none;display:grid;gap:11px}
+.rules li{display:grid;grid-template-columns:auto 1fr;gap:14px;border:1px solid var(--line);
+border-radius:4px;padding:14px 16px;font-size:.85rem;background:rgba(10,17,32,.6)}
+.tick{color:var(--acc2);font-weight:800}
+.rules .en{display:block;color:var(--mut);font-size:.72rem;margin-top:3px}
+footer{padding:40px 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-size:.82rem}
+.fl{display:flex;gap:11px;align-items:center;color:var(--mut)}
+.fl b{color:var(--fg);display:block;font-size:.92rem}
+footer nav{display:flex;gap:16px}
+footer nav a{color:var(--acc);border:1px solid var(--line);padding:7px 15px;border-radius:3px;font-size:.78rem}
+.fine{color:var(--mut);font-size:.7rem;margin-top:12px;opacity:.7}
+
+</style>
+</head>
+<body class="">
+
+<div class="wrap">
+<div class="hero">
+  <div class="tagbox">spec sheet · rev 18.0</div>
+  <h1>کوروش معصومی<span>.</span></h1>
+  <p class="role">// مهندس سیستم‌های هوش مصنوعی</p>
+  <p class="tag">سیستم‌های هوش مصنوعی که روی سخت‌افزار خودت اجرا می‌شوند</p>
+  <div class="cta">
+    <a class="p" href="https://github.com/supremeloki">view_source</a>
+    <a class="s" href="mailto:kooroushmasoumi@gmail.com">contact</a>
+  </div>
+</div>
+<section><h2><span class="idx">[01]</span> اعداد واقعی</h2><p class="sub">--- بدون تعریف کتابی، از خروجی دستگاه</p>
+<div class="stats"><div class="stat" data-n="00"><b>42K</b><span>خط کد عملیاتی</span></div><div class="stat" data-n="01"><b>15</b><span>پروژه چندپلتفرمی</span></div><div class="stat" data-n="02"><b>19</b><span>ماژول در معماری اصلی</span></div><div class="stat" data-n="03"><b>7</b><span>لایه امنیتی</span></div></div></section>
+<section><h2><span class="idx">[02]</span> پروژه‌ها</h2><p class="sub">--- ده سیستم ساخته‌شده</p>
+<div class="grid">
+<article class="card" data-tag="flagship">
+  <header>
+    <h3>FAVA</h3>
+    <span class="year">2025 — 2026</span>
+  </header>
+  <p class="name-fa">پلتفرم AI سازمانی</p>
+  <p class="desc">پلتفرم هوش مصنوعی سازمانی کاملاً آفلاین با معماری ۱۹ ماژولی. پاسخ‌گویی به پرسش‌های فارسی روی داده داخلی سازمان با NL→SQL امن و بازیابی مبتنی بر RAG.</p>
+  <div class="metrics"><div class="metric"><b>۱۹</b><span>ماژول</span></div><div class="metric"><b>۷</b><span>لایه امنیتی</span></div><div class="metric"><b>۰</b><span>بایت خروج داده</span></div></div>
+  <ul class="stack"><li>Python</li><li>FastAPI</li><li>DuckDB</li><li>Ollama</li><li>RAG</li><li>RBAC</li></ul>
+</article>
+<article class="card" data-tag="library">
+  <header>
+    <h3>lono_libs</h3>
+    <span class="year">2024 — 2026</span>
+  </header>
+  <p class="name-fa">کتابخانه سنجش ML</p>
+  <p class="desc">کتابخانه ارزیابی یادگیری ماشین با پوشش تست عمیق. طبقه‌بندی، رگرسیون، متریک‌های نامتوازن و ابزارهای ارزیابی مدل.</p>
+  <div class="metrics"><div class="metric"><b>۵۲۴۸</b><span>خط کد</span></div><div class="metric"><b>۱۲۸</b><span>تابع تست</span></div><div class="metric"><b>۶۰+</b><span>متریک</span></div></div>
+  <ul class="stack"><li>Python</li><li>NumPy</li><li>scikit-learn</li><li>pytest</li></ul>
+</article>
+<article class="card" data-tag="ml">
+  <header>
+    <h3>Smart-Logistics</h3>
+    <span class="year">2025</span>
+  </header>
+  <p class="name-fa">بهینه‌سازی لجستیک چندوجهی</p>
+  <p class="desc">تخصیص پویای ناوگان با یادگیری تقویتی عمیق و مسیریابی گرافی، با مسیریابی مجدد لحظه‌ای در معماری میکروسرویس.</p>
+  <div class="metrics"><div class="metric"><b>۲۰۵۹۴</b><span>خط کد</span></div><div class="metric"><b>۴</b><span>مدل مسیریابی</span></div></div>
+  <ul class="stack"><li>Python</li><li>DRL</li><li>Graph</li><li>OR-Tools</li></ul>
+</article>
+<article class="card" data-tag="ml">
+  <header>
+    <h3>Real-Time-Fraud</h3>
+    <span class="year">2025</span>
+  </header>
+  <p class="name-fa">تشخیص تقلب بلادرنگ</p>
+  <p class="desc">پایپ‌لاین MLOps سطح سازمانی برای شناسایی فعالیت مشکوک در لحظه با تحلیل گرافی، همراه با حفظ توضیح‌پذیری مدل.</p>
+  <div class="metrics"><div class="metric"><b>۹۹۳۷</b><span>خط کد</span></div><div class="metric"><b>بلادرنگ</b><span>پایپ‌لاین</span></div></div>
+  <ul class="stack"><li>Python</li><li>MLOps</li><li>Graph</li><li>Kafka</li></ul>
+</article>
+<article class="card" data-tag="ml">
+  <header>
+    <h3>Real-Time-Demand</h3>
+    <span class="year">2025</span>
+  </header>
+  <p class="name-fa">پیش‌بینی تقاضای لحظه‌ای</p>
+  <p class="desc">پایپ‌لاین سرتاسری برای پیش‌بینی تقاضای چندمنطقه‌ای با تأخیر پایین و تخصیص پویای منابع.</p>
+  <div class="metrics"><div class="metric"><b>۶۲۹۲</b><span>خط کد</span></div><div class="metric"><b>۵۲</b><span>تابع تست</span></div></div>
+  <ul class="stack"><li>Python</li><li>MLOps</li><li>Feature Store</li></ul>
+</article>
+<article class="card" data-tag="product">
+  <header>
+    <h3>NutriPro AI</h3>
+    <span class="year">2026</span>
+  </header>
+  <p class="name-fa">دستیار تغذیه فارسی</p>
+  <p class="desc">دستیار هوش مصنوعی تغذیه و تناسب‌اندام فارسی با رابط RTL کامل و نصب‌کننده یک‌کلیکی ویندوز.</p>
+  <div class="metrics"><div class="metric"><b>۱۰۰۰۱</b><span>غذا</span></div><div class="metric"><b>۲۵۰۱</b><span>ورزش</span></div></div>
+  <ul class="stack"><li>TypeScript</li><li>React</li><li>Vite</li><li>Zustand</li></ul>
+</article>
+<article class="card" data-tag="product">
+  <header>
+    <h3>ConLog</h3>
+    <span class="year">2026</span>
+  </header>
+  <p class="name-fa">مسیریابی ایرانی</p>
+  <p class="desc">سوپر‌اپ مسیریابی با چهار مدل مسیر، پوشش ۴۲ منطقه و داده‌های خطر، با بیش از ۲۳ هزار نقطه هشدار جاده‌ای.</p>
+  <div class="metrics"><div class="metric"><b>۴</b><span>مدل مسیر</span></div><div class="metric"><b>۲۳K</b><span>نقطه خطر</span></div></div>
+  <ul class="stack"><li>FastAPI</li><li>Kotlin</li><li>GeoJSON</li><li>PostGIS</li></ul>
+</article>
+<article class="card" data-tag="product">
+  <header>
+    <h3>TVSoLS</h3>
+    <span class="year">2026</span>
+  </header>
+  <p class="name-fa">اپ نتایج زنده فارسی</p>
+  <p class="desc">اپ اندروید نتایج زنده با رابط کاملاً فارسی و راست‌به‌چپ، منتشرشده در کافه‌بازار.</p>
+  <div class="metrics"><div class="metric"><b>۱۰۰۰۰+</b><span>رویداد</span></div><div class="metric"><b>۴</b><span>ورزش</span></div></div>
+  <ul class="stack"><li>Kotlin</li><li>Jetpack</li><li>Cloudflare D1</li></ul>
+</article>
+<article class="card" data-tag="product">
+  <header>
+    <h3>BluePrint AI</h3>
+    <span class="year">2026</span>
+  </header>
+  <p class="name-fa">مدیریت پروژه ساختمانی</p>
+  <p class="desc">اپ بومی اندروید برای مدیریت پروژه‌های ساختمانی با معماری چندماژولی و همگام‌سازی آفلاین‌اول.</p>
+  <div class="metrics"><div class="metric"><b>چندماژولی</b><span>معماری</span></div></div>
+  <ul class="stack"><li>Kotlin</li><li>Room</li><li>FastAPI</li><li>Gradle</li></ul>
+</article>
+<article class="card" data-tag="research">
+  <header>
+    <h3>DEKA-VERETHRAGNA</h3>
+    <span class="year">2026</span>
+  </header>
+  <p class="name-fa">دفاع سایبری خودمختار</p>
+  <p class="desc">طراحی اکوسیستم دفاع سایبری خودمختار با معماری فازبندی‌شده و راستی‌آزمایی متخاصم برای ادعاهای معماری.</p>
+  <div class="metrics"><div class="metric"><b>۱۲</b><span>یافته راستی‌آزمایی‌شده</span></div><div class="metric"><b>۴</b><span>لایه معماری</span></div></div>
+  <ul class="stack"><li>eBPF</li><li>SHAP</li><li>GNN</li><li>MLOps</li></ul>
+</article></div></section>
+<section><h2><span class="idx">[03]</span> مهارت‌ها</h2><p class="sub">--- درصد تسلط بر اساس استفاده واقعی</p>
+<div class="sgroup"><h4>هوش مصنوعی و یادگیری ماشین</h4><ul><li><span class="lbl">PyTorch / TensorFlow</span>
+<span class="track"><i style="width:88%"></i></span>
+<b class="num">88</b></li><li><span class="lbl">MLOps</span>
+<span class="track"><i style="width:85%"></i></span>
+<b class="num">85</b></li><li><span class="lbl">RAG</span>
+<span class="track"><i style="width:90%"></i></span>
+<b class="num">90</b></li><li><span class="lbl">NL-to-SQL</span>
+<span class="track"><i style="width:87%"></i></span>
+<b class="num">87</b></li><li><span class="lbl">Optuna</span>
+<span class="track"><i style="width:80%"></i></span>
+<b class="num">80</b></li><li><span class="lbl">bge-m3 embeddings</span>
+<span class="track"><i style="width:82%"></i></span>
+<b class="num">82</b></li></ul></div><div class="sgroup"><h4>زبان‌ها و فریم‌ورک‌ها</h4><ul><li><span class="lbl">Python</span>
+<span class="track"><i style="width:92%"></i></span>
+<b class="num">92</b></li><li><span class="lbl">Kotlin / Android</span>
+<span class="track"><i style="width:85%"></i></span>
+<b class="num">85</b></li><li><span class="lbl">TypeScript / React</span>
+<span class="track"><i style="width:84%"></i></span>
+<b class="num">84</b></li><li><span class="lbl">FastAPI</span>
+<span class="track"><i style="width:88%"></i></span>
+<b class="num">88</b></li><li><span class="lbl">Rust / Go</span>
+<span class="track"><i style="width:62%"></i></span>
+<b class="num">62</b></li></ul></div><div class="sgroup"><h4>داده و زیرساخت</h4><ul><li><span class="lbl">DuckDB / PostgreSQL</span>
+<span class="track"><i style="width:87%"></i></span>
+<b class="num">87</b></li><li><span class="lbl">Redis / Kafka</span>
+<span class="track"><i style="width:80%"></i></span>
+<b class="num">80</b></li><li><span class="lbl">ETL / CDC</span>
+<span class="track"><i style="width:84%"></i></span>
+<b class="num">84</b></li><li><span class="lbl">Docker</span>
+<span class="track"><i style="width:82%"></i></span>
+<b class="num">82</b></li><li><span class="lbl">CI/CD</span>
+<span class="track"><i style="width:79%"></i></span>
+<b class="num">79</b></li></ul></div><div class="sgroup"><h4>امنیت و مهندسی</h4><ul><li><span class="lbl">RBAC / RLS</span>
+<span class="track"><i style="width:88%"></i></span>
+<b class="num">88</b></li><li><span class="lbl">eBPF / XDP</span>
+<span class="track"><i style="width:76%"></i></span>
+<b class="num">76</b></li><li><span class="lbl">PQC (Kyber, Dilithium)</span>
+<span class="track"><i style="width:74%"></i></span>
+<b class="num">74</b></li><li><span class="lbl">mypy --strict</span>
+<span class="track"><i style="width:90%"></i></span>
+<b class="num">90</b></li><li><span class="lbl">pytest</span>
+<span class="track"><i style="width:91%"></i></span>
+<b class="num">91</b></li></ul></div><div class="sgroup"><h4>پردازش زبان فارسی</h4><ul><li><span class="lbl">ZWNJ normalization</span>
+<span class="track"><i style="width:93%"></i></span>
+<b class="num">93</b></li><li><span class="lbl">Persian digits</span>
+<span class="track"><i style="width:90%"></i></span>
+<b class="num">90</b></li><li><span class="lbl">RTL layout</span>
+<span class="track"><i style="width:89%"></i></span>
+<b class="num">89</b></li><li><span class="lbl">Unicode detection</span>
+<span class="track"><i style="width:85%"></i></span>
+<b class="num">85</b></li></ul></div></section>
+<section><h2><span class="idx">[04]</span> مسیر</h2><p class="sub">--- از بنیان تا محصول</p><ul class="tl"><li>
+<span class="yr">2024</span>
+<div><h4>بنیان‌گذاری</h4><p>کتابخانه‌های هسته، ابزارهای داده و زیرساخت پایه</p>
+<span class="cnt">12 پروژه</span></div></li><li>
+<span class="yr">2025</span>
+<div><h4>بلوغ مهندسی</h4><p>پایپ‌لاین‌های MLOps، سیستم‌های توزیع‌شده و مدل‌های یادگیری عمیق</p>
+<span class="cnt">20 پروژه</span></div></li><li>
+<span class="yr">2026</span>
+<div><h4>محصول</h4><p>محصولات کامل با رابط فارسی، پژوهش دفاع سایبری و انتشار</p>
+<span class="cnt">15 پروژه</span></div></li></ul></section>
+<section><h2><span class="idx">[05]</span> قواعد کاری</h2><p class="sub">--- هر خط کد این پنج قانون را دارد</p>
+<ul class="rules"><li><span class="tick">✓</span><span class="fa">بدون کامنت — نام‌ها خودشان مستند هستند</span><span class="en">Zero comments — names carry the meaning</span></li><li><span class="tick">✓</span><span class="fa">تایپینگ کامل با امضای مدرن</span><span class="en">Full typing with modern signatures</span></li><li><span class="tick">✓</span><span class="fa">بدون بدهی فنی</span><span class="en">Zero technical debt</span></li><li><span class="tick">✓</span><span class="fa">بدون شبه‌کد — همه‌چیز واقعی و متصل</span><span class="en">No placeholders — everything wired end to end</span></li><li><span class="tick">✓</span><span class="fa">تست واقعی پیش از اعلام اتمام</span><span class="en">Real passing tests before calling it done</span></li></ul></section>
+
+<footer>
+  <div class="fl">
+    <img src="../assets/favicon.svg" alt="" width="34" height="34">
+    <div>
+      <b>کوروش معصومی</b>
+      <span>مهندس سیستم‌های هوش مصنوعی</span>
+    </div>
+  </div>
+  <nav>
+    <a href="https://github.com/supremeloki">GitHub</a>
+    <a href="mailto:kooroushmasoumi@gmail.com">Email</a>
+  </nav>
+  <p class="fine">ساخته‌شده با SVG و بدون هیچ فریم‌ورک — بارگذاری زیر یک ثانیه.</p>
+</footer>
+</div>
+
+
+</body>
+</html>

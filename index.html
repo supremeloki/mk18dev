@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MK18DEV — ده مدل پورتفولیو</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<style>
+:root{--bg:#08090d;--fg:#e9edf5;--mut:#8b93a5;--acc:#38bdf8;--acc2:#818cf8;--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",Tahoma,sans-serif;padding:44px 26px 70px;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;filter:blur(100px);opacity:.35}
+body::before{background:radial-gradient(circle at 15% 10%,#0ea5e9,transparent 55%),
+radial-gradient(circle at 85% 30%,#6366f1,transparent 55%)}
+.wrap{max-width:1500px;margin:0 auto}
+h1{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:800;letter-spacing:-.03em;text-align:center;
+background:linear-gradient(100deg,#7dd3fc,#a5b4fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:var(--mut);margin:14px auto 12px;max-width:640px;line-height:1.9}
+.hint{text-align:center;color:var(--acc);font-size:.85rem;margin-bottom:44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px}
+.card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+transition:.32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-7px);border-color:rgba(56,189,248,.5);box-shadow:0 26px 60px rgba(0,0,0,.55)}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#05070c;border-bottom:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:.5s}
+.card:hover .shot img{transform:scale(1.05)}
+.open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+background:rgba(8,9,13,.78);color:var(--acc);font-weight:700;font-size:1rem;
+opacity:0;transition:.3s;backdrop-filter:blur(2px)}
+.card:hover .open{opacity:1}
+.meta{padding:18px 20px 22px;display:grid;gap:7px}
+.t{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.t b{font-size:1.05rem;font-weight:700}
+.tier{font-size:.68rem;color:var(--c);border:1px solid var(--c);border-radius:99px;padding:2px 10px;opacity:.9}
+code{font-family:Consolas,monospace;font-size:.74rem;color:var(--acc2);direction:ltr;text-align:left}
+.meta p{font-size:.84rem;color:var(--mut);line-height:1.75}
+.meta .note{color:var(--acc);font-size:.78rem}
+footer{text-align:center;color:var(--mut);font-size:.76rem;margin-top:44px;line-height:1.9}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ده مدل پورتفولیو</h1>
+  <p class="sub">همه با SVG خالص، بدون هیچ فریم‌ورک و بدون CDN. هر کارت را کلیک کن تا نسخه کامل باز شود.</p>
+  <p class="hint">برای دیدن بزرگ‌تر، کارت را باز کن ← </p>
+  <div class="grid">
+<a class="card" href="01-glassmorphism/index.html">
+  <div class="shot"><img src="_preview/01-glassmorphism.png" alt="01-glassmorphism" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>گلسمورفیسم تیره</b><span class="tier" style="--c:#22c55e">ایمن</span></div>
+    <code>01-glassmorphism</code>
+    <p>کارت‌های شیشه‌ای شناور روی هاله رنگی</p>
+    <p class="note">پرطرفدارترین انتخاب برای شروع</p>
+  </div>
+</a>
+<a class="card" href="02-blueprint/index.html">
+  <div class="shot"><img src="_preview/02-blueprint.png" alt="02-blueprint" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>نقشه فنی</b><span class="tier" style="--c:#f59e0b"> جسور</span></div>
+    <code>02-blueprint</code>
+    <p>کاغذ مهندسی با شبکه و شماره‌گذاری</p>
+    <p class="note">برای مخاطب فنی و داور فنی</p>
+  </div>
+</a>
+<a class="card" href="03-swiss/index.html">
+  <div class="shot"><img src="_preview/03-swiss.png" alt="03-swiss" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>سوئیسی</b><span class="tier" style="--c:#22c55e">ایمن</span></div>
+    <code>03-swiss</code>
+    <p>تایپوگرافی بزرگ، خطوط سخت، شبکه منظم</p>
+    <p class="note">کم‌ترین تزئین، بیشترین اعتماد</p>
+  </div>
+</a>
+<a class="card" href="04-terminal/index.html">
+  <div class="shot"><img src="_preview/04-terminal.png" alt="04-terminal" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>ترمینال</b><span class="tier" style="--c:#f59e0b"> جسور</span></div>
+    <code>04-terminal</code>
+    <p>پنجره bash با سبز فسفری و اسکن‌لاین</p>
+    <p class="note">برای مخاطب توسعه‌دهنده</p>
+  </div>
+</a>
+<a class="card" href="05-cyberpunk/index.html">
+  <div class="shot"><img src="_preview/05-cyberpunk.png" alt="05-cyberpunk" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>سایبرپانک</b><span class="tier" style="--c:#ef4444">ریسک</span></div>
+    <code>05-cyberpunk</code>
+    <p>نئون، گلیچ و کلیپ‌پث</p>
+    <p class="note">جسور ولی ریسک‌دار</p>
+  </div>
+</a>
+<a class="card" href="06-paper/index.html">
+  <div class="shot"><img src="_preview/06-paper.png" alt="06-paper" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>کاغذ</b><span class="tier" style="--c:#22c55e">ایمن</span></div>
+    <code>06-paper</code>
+    <p>مینیمال روشن با تایپوگرافی کلاسیک</p>
+    <p class="note">کمترین مزاحمت بصری</p>
+  </div>
+</a>
+<a class="card" href="07-isometric/index.html">
+  <div class="shot"><img src="_preview/07-isometric.png" alt="07-isometric" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>ایزومتریک SVG</b><span class="tier" style="--c:#f59e0b"> جسور</span></div>
+    <code>07-isometric</code>
+    <p>صحنه سه‌بعدی دست‌ساز با جعبه‌های SVG</p>
+    <p class="note">نشان می‌دهد SVG کار می‌کند</p>
+  </div>
+</a>
+<a class="card" href="08-dashboard/index.html">
+  <div class="shot"><img src="_preview/08-dashboard.png" alt="08-dashboard" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>داشبورد</b><span class="tier" style="--c:#22c55e">ایمن</span></div>
+    <code>08-dashboard</code>
+    <p>پنل‌های KPI، جدول و شاخص</p>
+    <p class="note">داده‌محور و سازمانی</p>
+  </div>
+</a>
+<a class="card" href="09-bento/index.html">
+  <div class="shot"><img src="_preview/09-bento.png" alt="09-bento" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>بنتو</b><span class="tier" style="--c:#f59e0b"> جسور</span></div>
+    <code>09-bento</code>
+    <p>شبکه نامتقارن سلولی با هاور مکان‌نما</p>
+    <p class="note">مدرن‌ترین چیدمان</p>
+  </div>
+</a>
+<a class="card" href="10-aurora/index.html">
+  <div class="shot"><img src="_preview/10-aurora.png" alt="10-aurora" loading="lazy"><span class="open">باز کردن ↗</span></div>
+  <div class="meta">
+    <div class="t"><b>شفق ذره‌ای</b><span class="tier" style="--c:#f59e0b"> جسور</span></div>
+    <code>10-aurora</code>
+    <p>canvas با ذرات متصل و گلاس بلور</p>
+    <p class="note">خاص‌ترین، سنگین‌ترین</p>
+  </div>
+</a></div>
+  <footer>
+    ساخته‌شده برای <b>mk18dev</b> — کوروش معصومی<br>
+    هر ۱۰ مدل از یک دیتامodel مشترک ساخته شده‌اند؛ فقط زبان بصری‌شان فرق دارد.
+  </footer>
+</div>
+</body>
+</html>
